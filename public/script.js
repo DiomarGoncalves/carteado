@@ -1,7 +1,17 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const playerForm = document.getElementById("addPlayerForm");
     const playerNameInput = document.getElementById("playerName");
     const playersContainer = document.getElementById("players");
+
+    async function pingServer() {
+        try {
+            await fetch(`${API_URL}/ping`);
+            console.log("Servidor ativo");
+        } catch (error) {
+            console.error("Erro ao pingar o servidor:", error);
+        }
+    }
 
     playerForm.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -14,13 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     async function fetchPlayers() {
-        const response = await fetch('/players');
+        const response = await fetch(`${API_URL}/players`);
         const players = await response.json();
         return players;
     }
 
     async function addPlayer(name) {
-        await fetch('/players', {
+        await fetch(`${API_URL}/players`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function updatePlayer(id, lives) {
-        await fetch(`/players/${id}`, {
+        await fetch(`${API_URL}/players/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function deletePlayer(id) {
-        await fetch(`/players/${id}`, {
+        await fetch(`${API_URL}/players/${id}`, {
             method: 'DELETE'
         });
     }
@@ -55,8 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
             playerElement.innerHTML = `
                 <span>${player.name}</span>
                 <span>Vidas: ${player.lives}</span>
-                <button onclick="changeLives(${player.id}, ${player.lives - 1})">-1</button>
-                <button onclick="changeLives(${player.id}, ${player.lives + 1})">+1</button>
+                <button onclick="changeLives(${player.id}, ${player.lives - 1})">-1 Vida</button>
+                <button onclick="changeLives(${player.id}, ${player.lives + 1})">+1 Vida</button>
                 <button onclick="removePlayer(${player.id})">Remover</button>
             `;
             playersContainer.appendChild(playerElement);
@@ -73,5 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
         renderPlayers();
     }
 
+    pingServer();
     renderPlayers();
 });
