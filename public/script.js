@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const playerForm = document.getElementById("addPlayerForm");
     const playerNameInput = document.getElementById("playerName");
@@ -6,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function pingServer() {
         try {
-            await fetch(`${API_URL}/ping`);
+            await fetch(`/ping`);
             console.log("Servidor ativo");
         } catch (error) {
             console.error("Erro ao pingar o servidor:", error);
@@ -24,13 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     async function fetchPlayers() {
-        const response = await fetch(`${API_URL}/players`);
+        const response = await fetch(`/players`);
         const players = await response.json();
         return players;
     }
 
     async function addPlayer(name) {
-        await fetch(`${API_URL}/players`, {
+        await fetch(`/players`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function updatePlayer(id, lives) {
-        await fetch(`${API_URL}/players/${id}`, {
+        await fetch(`/players/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function deletePlayer(id) {
-        await fetch(`${API_URL}/players/${id}`, {
+        await fetch(`/players/${id}`, {
             method: 'DELETE'
         });
     }
