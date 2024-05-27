@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="manifest" href="images/site.webmanifest" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Fodinha</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Jogo de Cartas</h1>
+        <form id="addPlayerForm">
+            <input type="text" id="playerName" placeholder="Nome do Jogador" required>
+            <button type="submit">Adicionar Jogador</button>
+        </form>
+        <div id="players">
+            <!-- Aqui os jogadores serão listados -->
+        </div>
+        <div class="rules">
+            <h2>Sequência de Cartas</h2>
+            <div class="card-sequence">
+                <img src="images/sequencia_cartas.png" alt="Sequência de Cartas">
+            </div>
+
+            <h2>Regras do Jogo</h2>
+            <p>1. Cada jogador começa com 3 vidas.</p>
+            <p>2. Em cada rodada, um jogador joga uma carta e deve adivinhar se vai ganhar a rodada ou não.</p>
+            <p>3. Se o jogador disser que vai ganhar e não ganhar, ele perde uma vida.</p>
+            <p>4. Se o jogador disser que não vai ganhar e ganhar, ele também perde uma vida.</p>
+            <p>5. A cada rodada, aumenta a quantidade de cartas na mesa.</p>
+            <p>6. O jogo continua até que restem jogadores com vidas.</p>
+            <p>7. Quando um jogador perde todas as vidas, ele é eliminado do jogo.</p>
+            <p>8. O último jogador restante é o vencedor.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

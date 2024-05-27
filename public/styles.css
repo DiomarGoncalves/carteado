@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  margin-top: 50%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 180%;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+#players {
+  min-height: 200px;
+  flex: 1;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+button {
+    border-radius:10px;
+    color: rgb(91, 91, 255);
+    padding: 10px 20px;
+    font-size: 16px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+}
+
+.rules {
+  text-align: left;
+}
+
+.rules h2 {
+  margin-bottom: 10px;
+}
+
+.rules p {
+  margin: 5px 0;
+}
+
+.card-sequence {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card-sequence img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+/* Media Query para Telas Menores */
+@media (max-width: 600px) {
+  body {
+    height: 100vh;
+    padding: 10px;
+    margin-top: 30%;
+  }
+
+  .container {
+    height: auto;
+    padding: 15px;
+    margin-top: 10%;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+  }
+
+  form input {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  form button {
+    background-color: #dfdcdcd8;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  #players {
+    max-height: 200px;
+    padding: 8px;
+  }
+
+  .player {
+    align-items: flex-start;
+  }
+
+  .player button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  .rules {
+    font-size: 14px;
+  }
+
+  .rules h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .rules p {
+    margin: 3px 0;
+  }
+
+  .card-sequence img {
+    max-width: 100%;
+  }
+}
