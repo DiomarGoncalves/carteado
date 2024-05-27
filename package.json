@@ -4,8 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "build": "echo 'No build step defined'"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^4.17.1",
