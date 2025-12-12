@@ -13,6 +13,20 @@ declare global {
   }
 }
 
+// Configuration for PeerJS with Google's public STUN servers
+// This enables connections between different networks (WiFi vs 4G)
+const PEER_CONFIG = {
+  config: {
+    iceServers: [
+      { urls: 'stun:stun.l.google.com:19302' },
+      { urls: 'stun:stun1.l.google.com:19302' },
+      { urls: 'stun:stun2.l.google.com:19302' },
+      { urls: 'stun:stun3.l.google.com:19302' },
+      { urls: 'stun:stun4.l.google.com:19302' },
+    ]
+  }
+};
+
 // Utility for simple unique IDs
 const uuid = () => Math.random().toString(36).substr(2, 9);
 const generateRoomCode = () => Math.random().toString(36).substring(2, 6).toUpperCase();
@@ -130,7 +144,8 @@ const App: React.FC = () => {
       updateNetworkRole('HOST');
       
       const peerId = `cc-game-${code}`; 
-      const peer = new window.Peer(peerId);
+      // Initialize Peer with STUN config
+      const peer = new window.Peer(peerId, PEER_CONFIG);
       peerRef.current = peer;
 
       peer.on('open', (id: string) => {
@@ -179,7 +194,8 @@ const App: React.FC = () => {
       updateNetworkRole('CLIENT');
       setConnectionStatus('Conectando ao servidor...');
 
-      const peer = new window.Peer(); 
+      // Initialize Peer with STUN config
+      const peer = new window.Peer(undefined, PEER_CONFIG); 
       peerRef.current = peer;
 
       peer.on('open', (id: string) => {
