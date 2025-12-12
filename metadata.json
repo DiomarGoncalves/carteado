@@ -1,0 +1,5 @@
+{
+  "name": "Card Clash (UNO Style)",
+  "description": "A modern, multiplayer-ready card game inspired by UNO. Features animated gameplay, smart AI opponents, and real-time dynamic chat powered by Gemini.",
+  "requestFramePermissions": []
+}
